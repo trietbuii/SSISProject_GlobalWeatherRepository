@@ -1,0 +1,114 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/15/2026 9:45:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-8N70AGE"
+  DTS:CreatorName="DESKTOP-8N70AGE\X1"
+  DTS:DTSID="{022E4703-17E7-4B24-96A8-E2FDCB7B5E4F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{DAE65475-5666-4920-85B1-1FE2AB7341DA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8N70AGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{35662ECA-234A-4494-87F0-F199E653CD2A}"
+      DTS:ObjectName="DESKTOP-8N70AGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8N70AGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{35662ECA-234A-4494-87F0-F199E653CD2A}DESKTOP-8N70AGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8N70AGE 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5A76260B-4131-4D42-827C-05FB02C64D1C}"
+      DTS:ObjectName="DESKTOP-8N70AGE 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8N70AGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{5A76260B-4131-4D42-827C-05FB02C64D1C}DESKTOP-8N70AGE 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4DB79DBB-F5AD-4648-893F-5AA4E72DF8B6}"
+      DTS:ObjectName="DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8N70AGE;Initial Catalog=DataWarehouse_GlobalWeatherRepository;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{4DB79DBB-F5AD-4648-893F-5AA4E72DF8B6}DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_Build_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E0C4E219-7EE6-40CE-B550-4807A2A8520F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_Build_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_Build_DW\Create_DIM_FACT_Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BA2B95F6-E4CE-49A5-B17E-A02952845D5D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create_DIM_FACT_Table"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4DB79DBB-F5AD-4648-893F-5AA4E72DF8B6}"
+              SQLTask:SqlStatementSource="-- DIM_COUNTRY&#xA;CREATE TABLE DIM_COUNTRY (&#xA;    country_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    country VARCHAR(100) NOT NULL&#xA;);&#xA;&#xA;-- DIM_LOCATION&#xA;CREATE TABLE DIM_LOCATION (&#xA;    location_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    country_id INT NOT NULL,&#xA;    location_name VARCHAR(150) NOT NULL,&#xA;    latitude FLOAT,&#xA;    longitude FLOAT,&#xA;    timezone VARCHAR(100)&#xA;);&#xA;&#xA;-- DIM_DATE&#xA;CREATE TABLE DIM_DATE (&#xA;    date_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    last_updated_epoch INT,&#xA;    last_updated DATETIME,&#xA;    full_date DATE,&#xA;    year INT,&#xA;    month INT,&#xA;    day INT,&#xA;    hour INT,&#xA;    minute INT,&#xA;    day_of_week VARCHAR(20)&#xA;);&#xA;&#xA;-- DIM_CONDITION&#xA;CREATE TABLE DIM_CONDITION (&#xA;    condition_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    condition_text VARCHAR(150) NOT NULL&#xA;);&#xA;&#xA;-- DIM_AIR_QUALITY&#xA;CREATE TABLE DIM_AIR_QUALITY (&#xA;    air_quality_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    air_quality_pm2_5 FLOAT,&#xA;    air_quality_pm10 FLOAT,&#xA;    air_quality_us_epa_index INT,&#xA;    air_quality_gb_defra_index INT&#xA;);&#xA;&#xA;-- DIM_WIND_DIRECTION&#xA;CREATE TABLE DIM_WIND_DIRECTION (&#xA;    wind_direction_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    wind_degree INT,&#xA;    wind_direction VARCHAR(20)&#xA;);&#xA;&#xA;-- DIM_MOON_PHASE&#xA;CREATE TABLE DIM_MOON_PHASE (&#xA;    moon_phase_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    moon_phase VARCHAR(50) NOT NULL&#xA;);&#xA;&#xA;-- DIM_ASTRONOMY&#xA;CREATE TABLE DIM_ASTRONOMY (&#xA;    astronomy_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    moon_phase_id INT NOT NULL,&#xA;    sunrise TIME,&#xA;    sunset TIME&#xA;);&#xA;&#xA;-- FACT_WEATHER&#xA;CREATE TABLE FACT_WEATHER (&#xA;    weather_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    location_id INT NOT NULL,&#xA;    date_id INT NOT NULL,&#xA;    condition_id INT NOT NULL,&#xA;    air_quality_id INT NOT NULL,&#xA;    wind_direction_id INT NOT NULL,&#xA;    astronomy_id INT NOT NULL,&#xA;    temperature_celsius FLOAT,&#xA;    feels_like_celsius FLOAT,&#xA;    humidity INT,&#xA;    pressure_mb FLOAT,&#xA;    precip_mm FLOAT,&#xA;    wind_kph FLOAT,&#xA;    cloud INT,&#xA;    visibility_km FLOAT,&#xA;    uv_index FLOAT,&#xA;    moon_illumination INT&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\SEQ_Build_DW\Create_DIM_FACT_Table"
+          TopLeft="291.923083280759,106.393546291708" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="838,307.6"
+          Size="838,350.8"
+          Id="Package\SEQ_Build_DW"
+          TopLeft="0.169230677090354,3.35483860808284" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

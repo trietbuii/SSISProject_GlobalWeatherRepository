@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{DAE65475-5666-4920-85B1-1FE2AB7341DA}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{78F352C8-CA1F-4418-A21B-6943A6437438}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -52,36 +52,52 @@
           DTS:ConnectionString="Data Source=DESKTOP-8N70AGE;Initial Catalog=DataWarehouse_GlobalWeatherRepository;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{4DB79DBB-F5AD-4648-893F-5AA4E72DF8B6}DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E0D815ED-7D7D-44C8-87AE-9B0F7F5F88A6}"
+      DTS:ObjectName="DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8N70AGE;Initial Catalog=DataWarehouse_GlobalWeatherRepository;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{E0D815ED-7D7D-44C8-87AE-9B0F7F5F88A6}DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\SEQ_Build_DW"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{E0C4E219-7EE6-40CE-B550-4807A2A8520F}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:refId="Package\Create All Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C0EFD0CF-509C-48EB-B74A-6F9EA94A7337}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="SEQ_Build_DW">
+      DTS:ObjectName="Create All Tables"
+      DTS:ThreadHint="1">
       <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\SEQ_Build_DW\Create_DIM_FACT_Table"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{BA2B95F6-E4CE-49A5-B17E-A02952845D5D}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Create_DIM_FACT_Table"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{4DB79DBB-F5AD-4648-893F-5AA4E72DF8B6}"
-              SQLTask:SqlStatementSource="-- DIM_COUNTRY&#xA;CREATE TABLE DIM_COUNTRY (&#xA;    country_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    country VARCHAR(100) NOT NULL&#xA;);&#xA;&#xA;-- DIM_LOCATION&#xA;CREATE TABLE DIM_LOCATION (&#xA;    location_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    country_id INT NOT NULL,&#xA;    location_name VARCHAR(150) NOT NULL,&#xA;    latitude FLOAT,&#xA;    longitude FLOAT,&#xA;    timezone VARCHAR(100)&#xA;);&#xA;&#xA;-- DIM_DATE&#xA;CREATE TABLE DIM_DATE (&#xA;    date_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    last_updated_epoch INT,&#xA;    last_updated DATETIME,&#xA;    full_date DATE,&#xA;    year INT,&#xA;    month INT,&#xA;    day INT,&#xA;    hour INT,&#xA;    minute INT,&#xA;    day_of_week VARCHAR(20)&#xA;);&#xA;&#xA;-- DIM_CONDITION&#xA;CREATE TABLE DIM_CONDITION (&#xA;    condition_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    condition_text VARCHAR(150) NOT NULL&#xA;);&#xA;&#xA;-- DIM_AIR_QUALITY&#xA;CREATE TABLE DIM_AIR_QUALITY (&#xA;    air_quality_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    air_quality_pm2_5 FLOAT,&#xA;    air_quality_pm10 FLOAT,&#xA;    air_quality_us_epa_index INT,&#xA;    air_quality_gb_defra_index INT&#xA;);&#xA;&#xA;-- DIM_WIND_DIRECTION&#xA;CREATE TABLE DIM_WIND_DIRECTION (&#xA;    wind_direction_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    wind_degree INT,&#xA;    wind_direction VARCHAR(20)&#xA;);&#xA;&#xA;-- DIM_MOON_PHASE&#xA;CREATE TABLE DIM_MOON_PHASE (&#xA;    moon_phase_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    moon_phase VARCHAR(50) NOT NULL&#xA;);&#xA;&#xA;-- DIM_ASTRONOMY&#xA;CREATE TABLE DIM_ASTRONOMY (&#xA;    astronomy_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    moon_phase_id INT NOT NULL,&#xA;    sunrise TIME,&#xA;    sunset TIME&#xA;);&#xA;&#xA;-- FACT_WEATHER&#xA;CREATE TABLE FACT_WEATHER (&#xA;    weather_id INT IDENTITY(1,1) PRIMARY KEY,&#xA;    location_id INT NOT NULL,&#xA;    date_id INT NOT NULL,&#xA;    condition_id INT NOT NULL,&#xA;    air_quality_id INT NOT NULL,&#xA;    wind_direction_id INT NOT NULL,&#xA;    astronomy_id INT NOT NULL,&#xA;    temperature_celsius FLOAT,&#xA;    feels_like_celsius FLOAT,&#xA;    humidity INT,&#xA;    pressure_mb FLOAT,&#xA;    precip_mm FLOAT,&#xA;    wind_kph FLOAT,&#xA;    cloud INT,&#xA;    visibility_km FLOAT,&#xA;    uv_index FLOAT,&#xA;    moon_illumination INT&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0D815ED-7D7D-44C8-87AE-9B0F7F5F88A6}"
+          SQLTask:SqlStatementSource="-- DIM_COUNTRY&#xA;CREATE TABLE dbo.DIM_COUNTRY&#xA;(&#xA;    country_key INT IDENTITY(1,1) NOT NULL,&#xA;    country_name VARCHAR(100) NOT NULL,&#xA;    CONSTRAINT PK_DIM_COUNTRY PRIMARY KEY (country_key)&#xA;);&#xA;&#xA;-- DIM_DATE&#xA;CREATE TABLE dbo.DIM_DATE&#xA;(&#xA;    date_key INT NOT NULL,&#xA;    full_date DATE NOT NULL,&#xA;    year INT NOT NULL,&#xA;    quarter INT NOT NULL,&#xA;    month INT NOT NULL,&#xA;    week_of_year INT NOT NULL,&#xA;    day INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_DATE PRIMARY KEY (date_key)&#xA;);&#xA;&#xA;-- DIM_TIME&#xA;CREATE TABLE dbo.DIM_TIME&#xA;(&#xA;    time_key INT NOT NULL,&#xA;    hour INT NOT NULL,&#xA;    minute INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_TIME PRIMARY KEY (time_key)&#xA;);&#xA;&#xA;-- DIM_WEATHER_CONDITION&#xA;CREATE TABLE dbo.DIM_WEATHER_CONDITION&#xA;(&#xA;    condition_key INT IDENTITY(1,1) NOT NULL,&#xA;    condition_text VARCHAR(100) NOT NULL,&#xA;    CONSTRAINT PK_DIM_WEATHER_CONDITION PRIMARY KEY (condition_key)&#xA;);&#xA;&#xA;-- DIM_WIND_DIRECTION&#xA;CREATE TABLE dbo.DIM_WIND_DIRECTION&#xA;(&#xA;    wind_direction_key INT IDENTITY(1,1) NOT NULL,&#xA;    wind_direction VARCHAR(50) NOT NULL,&#xA;    CONSTRAINT PK_DIM_WIND_DIRECTION PRIMARY KEY (wind_direction_key)&#xA;);&#xA;&#xA;-- DIM_MOON_PHASE&#xA;CREATE TABLE dbo.DIM_MOON_PHASE&#xA;(&#xA;    moon_phase_key INT IDENTITY(1,1) NOT NULL,&#xA;    moon_phase VARCHAR(50) NOT NULL,&#xA;    CONSTRAINT PK_DIM_MOON_PHASE PRIMARY KEY (moon_phase_key)&#xA;);&#xA;&#xA;-- DIM_LOCATION&#xA;CREATE TABLE dbo.DIM_LOCATION&#xA;(&#xA;    location_key INT IDENTITY(1,1) NOT NULL,&#xA;    location_name VARCHAR(150) NOT NULL,&#xA;    latitude FLOAT NULL,&#xA;    longitude FLOAT NULL,&#xA;    timezone VARCHAR(100) NULL,&#xA;    country_key INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_LOCATION PRIMARY KEY (location_key),&#xA;    CONSTRAINT FK_DIM_LOCATION_COUNTRY&#xA;        FOREIGN KEY (country_key)&#xA;        REFERENCES dbo.DIM_COUNTRY(country_key)&#xA;);&#xA;&#xA;-- DIM_ASTRONOMY&#xA;CREATE TABLE dbo.DIM_ASTRONOMY&#xA;(&#xA;    astronomy_key INT IDENTITY(1,1) NOT NULL,&#xA;    sunrise VARCHAR(20) NULL,&#xA;    sunset VARCHAR(20) NULL,&#xA;    moonrise VARCHAR(20) NULL,&#xA;    moonset VARCHAR(20) NULL,&#xA;    moon_phase_key INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_ASTRONOMY PRIMARY KEY (astronomy_key),&#xA;    CONSTRAINT FK_DIM_ASTRONOMY_MOON_PHASE&#xA;        FOREIGN KEY (moon_phase_key)&#xA;        REFERENCES dbo.DIM_MOON_PHASE(moon_phase_key)&#xA;);&#xA;&#xA;-- FACT_WEATHER&#xA;CREATE TABLE dbo.FACT_WEATHER&#xA;(&#xA;    weather_key BIGINT IDENTITY(1,1) NOT NULL,&#xA;    date_key INT NOT NULL,&#xA;    time_key INT NOT NULL,&#xA;    location_key INT NOT NULL,&#xA;    condition_key INT NOT NULL,&#xA;    wind_direction_key INT NOT NULL,&#xA;    astronomy_key INT NOT NULL,&#xA;    temperature_celsius FLOAT NULL,&#xA;    wind_kph FLOAT NULL,&#xA;    wind_degree INT NULL,&#xA;    pressure_mb FLOAT NULL,&#xA;    precip_mm FLOAT NULL,&#xA;    humidity INT NULL,&#xA;    cloud INT NULL,&#xA;    feels_like_celsius FLOAT NULL,&#xA;    visibility_km FLOAT NULL,&#xA;    uv_index FLOAT NULL,&#xA;    gust_kph FLOAT NULL,&#xA;    air_quality_ozone FLOAT NULL,&#xA;    air_quality_pm25 FLOAT NULL,&#xA;    air_quality_pm10 FLOAT NULL,&#xA;    moon_illumination INT NULL,&#xA;    CONSTRAINT PK_FACT_WEATHER PRIMARY KEY (weather_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_DATE&#xA;        FOREIGN KEY (date_key)&#xA;        REFERENCES dbo.DIM_DATE(date_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_TIME&#xA;        FOREIGN KEY (time_key)&#xA;        REFERENCES dbo.DIM_TIME(time_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_LOCATION&#xA;        FOREIGN KEY (location_key)&#xA;        REFERENCES dbo.DIM_LOCATION(location_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_CONDITION&#xA;        FOREIGN KEY (condition_key)&#xA;        REFERENCES dbo.DIM_WEATHER_CONDITION(condition_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_WIND_DIRECTION&#xA;        FOREIGN KEY (wind_direction_key)&#xA;        REFERENCES dbo.DIM_WIND_DIRECTION(wind_direction_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_ASTRONOMY&#xA;        FOREIGN KEY (astronomy_key)&#xA;        REFERENCES dbo.DIM_ASTRONOMY(astronomy_key)&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop All Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FF9FFC17-7484-460C-9D03-0AB61221DDF3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop All Tables"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0D815ED-7D7D-44C8-87AE-9B0F7F5F88A6}"
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS dbo.FACT_WEATHER;&#xA;&#xA;DROP TABLE IF EXISTS dbo.DIM_ASTRONOMY;&#xA;DROP TABLE IF EXISTS dbo.DIM_MOON_PHASE;&#xA;DROP TABLE IF EXISTS dbo.DIM_WIND_DIRECTION;&#xA;DROP TABLE IF EXISTS dbo.DIM_WEATHER_CONDITION;&#xA;DROP TABLE IF EXISTS dbo.DIM_TIME;&#xA;DROP TABLE IF EXISTS dbo.DIM_DATE;&#xA;DROP TABLE IF EXISTS dbo.DIM_LOCATION;&#xA;DROP TABLE IF EXISTS dbo.DIM_COUNTRY;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -97,16 +113,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="204,41.6"
-          Id="Package\SEQ_Build_DW\Create_DIM_FACT_Table"
-          TopLeft="291.923083280759,106.393546291708" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="838,307.6"
-          Size="838,350.8"
-          Id="Package\SEQ_Build_DW"
-          TopLeft="0.169230677090354,3.35483860808284" />
+          Size="152,41.6"
+          Id="Package\Drop All Tables"
+          TopLeft="78.8461555633143,77.5806428119153" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Create All Tables"
+          TopLeft="81.5384633142568,172.354833490255" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{78F352C8-CA1F-4418-A21B-6943A6437438}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{6842F0D9-4F2E-4E6B-ADD0-99548D1C1C22}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -64,6 +64,569 @@
           DTS:ConnectionString="Data Source=DESKTOP-8N70AGE;Initial Catalog=DataWarehouse_GlobalWeatherRepository;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{E0D815ED-7D7D-44C8-87AE-9B0F7F5F88A6}DESKTOP-8N70AGE.DataWarehouse_GlobalWeatherRepository 1;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="GLOBAL_WEATHER_SOURCE"
+      DTS:DTSID="{CC733481-0361-411A-A651-6A7E19EEA906}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\olap\GlobalWeatherRepository_clean.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="country_name"
+              DTS:DTSID="{051724D9-A805-4516-A8CB-ECF4F4236A01}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location_name"
+              DTS:DTSID="{CE0BBCEA-50C0-4217-8F6C-B64669440020}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="latitude"
+              DTS:DTSID="{BB21279F-C458-4656-BEB5-987BABAF7E8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="longitude"
+              DTS:DTSID="{02F6C2AB-1E67-41C6-9B55-E2D784C99BDE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="timezone"
+              DTS:DTSID="{0C31A195-8F28-4CF1-AC1F-E5F212AE14F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated_epoch"
+              DTS:DTSID="{2E6A0953-8349-46C6-AAB3-ACE0468F5428}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated"
+              DTS:DTSID="{F3FD45C3-65DE-44F7-A375-D57B879C2CED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="temperature_celsius"
+              DTS:DTSID="{30B67274-58CE-4236-BBCE-8451B20AE5F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wind_kph"
+              DTS:DTSID="{4D200815-6412-4E59-929C-BF8C38605624}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wind_degree"
+              DTS:DTSID="{80A45950-720A-4BDA-9D70-CA5E5A27EED5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pressure_mb"
+              DTS:DTSID="{E674B6DA-33F5-4DB3-AF2E-8BF966C8994C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="precip_mm"
+              DTS:DTSID="{555FC011-FC83-4A8A-916A-5914141EFBBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="humidity"
+              DTS:DTSID="{C8C85E3B-3C03-4D00-8EFE-203D1BE15DE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cloud"
+              DTS:DTSID="{FB1040DA-A6C7-4BE6-A7F9-1CFDB3BA6403}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="feels_like_celsius"
+              DTS:DTSID="{690831AE-8DF3-4A3B-A079-E1814B0E2FB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="visibility_km"
+              DTS:DTSID="{6586F407-E98A-4DD2-8813-5EE71788F2A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="uv_index"
+              DTS:DTSID="{CFC364F8-9B77-4854-897B-E5E431ADA6B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gust_kph"
+              DTS:DTSID="{596433C0-DC2D-4F19-ACAF-35E29915D7DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="air_quality_ozone"
+              DTS:DTSID="{9105721F-4AFA-4F96-9F76-0ECCC8001460}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="air_quality_pm25"
+              DTS:DTSID="{1A0D90F1-E357-4A1F-BA1E-D5EA9EE508F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="air_quality_pm10"
+              DTS:DTSID="{1CAB3A87-8031-4CAF-A5B8-D192D17DE4F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moon_illumination"
+              DTS:DTSID="{6928AD95-A75A-46E2-A3AA-AE2A9D04FECE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="condition_text"
+              DTS:DTSID="{B4482481-A0FB-437B-8125-A8EDC8E243E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wind_direction"
+              DTS:DTSID="{5EFF49C6-0FAD-4ADF-AB1B-7A686407B4FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sunrise"
+              DTS:DTSID="{5D9C9843-11F4-4045-B2C0-917761832FC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sunset"
+              DTS:DTSID="{143ABD51-3B51-4DA9-985B-7C4906F006E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moonrise"
+              DTS:DTSID="{260218A6-BC06-4DFB-867B-4115715C23C3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moonset"
+              DTS:DTSID="{1F10AA20-B8D2-4561-9C6D-EC2D3144E6BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moon_phase"
+              DTS:DTSID="{F30DB937-3D0D-416E-8D32-C64BAF8BDE72}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GLOBAL_WEATHER_SOURCE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D3F6CB7A-9D72-44C1-96EE-FAF5C75D3FEA}"
+      DTS:ObjectName="GLOBAL_WEATHER_SOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\olap\GlobalWeatherRepository_clean.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="country_name"
+              DTS:DTSID="{2386E785-9561-4C32-B852-45D498DED172}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location_name"
+              DTS:DTSID="{856957E7-9B53-4DCD-83C0-F033EA2F9653}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="latitude"
+              DTS:DTSID="{D98F6838-D498-44A4-9E8D-E87A0749040E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="longitude"
+              DTS:DTSID="{ACFFE978-B896-4144-9EAE-FF52050FBF89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="timezone"
+              DTS:DTSID="{02AF1F49-05B9-4BD7-851F-25091038B4EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated_epoch"
+              DTS:DTSID="{CE2DC5E0-A246-4E3F-9D0E-DA0D6D3949F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated"
+              DTS:DTSID="{8AA15C91-474A-43DC-A8D1-752AD546C0AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="temperature_celsius"
+              DTS:DTSID="{A3797941-A4CC-48C3-BC69-E06F7523AC4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wind_kph"
+              DTS:DTSID="{A24A477C-63D6-4FAB-A18C-6EFBFB91D943}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wind_degree"
+              DTS:DTSID="{76C57FCE-C5F7-4B07-9110-DD6096BF719C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pressure_mb"
+              DTS:DTSID="{6B8D41E0-A550-4100-963D-47F7D65D6FAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="precip_mm"
+              DTS:DTSID="{E003F5D2-A64A-4258-9E34-7B00243336DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="humidity"
+              DTS:DTSID="{499DF1FE-0B1E-438A-BBA1-11A33B0EE3B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cloud"
+              DTS:DTSID="{BFD859AF-D851-4FD2-892E-BF741BE69231}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="feels_like_celsius"
+              DTS:DTSID="{50E56946-56E8-49B0-8EED-2A6929B75919}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="visibility_km"
+              DTS:DTSID="{DDDC814C-65D6-4BA5-B1EB-2B6A0D4F6718}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="uv_index"
+              DTS:DTSID="{DDFC5C6F-57CD-4111-B8EA-39BD7F855EBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gust_kph"
+              DTS:DTSID="{92EDE6DA-2718-41D3-9F4D-B204AF14CE2D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="air_quality_ozone"
+              DTS:DTSID="{60F73366-BF62-4C0A-9B8C-98C15D0A03E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="air_quality_pm25"
+              DTS:DTSID="{811982F4-3891-4E7F-91E8-7380BE311A57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="air_quality_pm10"
+              DTS:DTSID="{7841B6AE-87F3-473E-B6F1-6C7298121B33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moon_illumination"
+              DTS:DTSID="{7B47C43D-AA9A-4285-B131-2C502C76FED8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="condition_text"
+              DTS:DTSID="{690DBCCF-EDF3-4EEB-98DA-2AAB5F9B8F6F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="wind_direction"
+              DTS:DTSID="{574A2E64-4CEB-403C-A0FD-5B50FC57839E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sunrise"
+              DTS:DTSID="{5C4BD0CE-401D-438A-977E-48F06F046133}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sunset"
+              DTS:DTSID="{7129DA38-3037-4A81-B7DE-3179471D2C28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moonrise"
+              DTS:DTSID="{88D8871B-DACD-4B01-9395-B97F3CCD76C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moonset"
+              DTS:DTSID="{D04950AF-1C31-4B56-A964-647B7E9A68AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moon_phase"
+              DTS:DTSID="{2C96DF74-2092-4FE8-8BCF-550CD8727C37}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -75,12 +638,2104 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Create All Tables"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E0D815ED-7D7D-44C8-87AE-9B0F7F5F88A6}"
-          SQLTask:SqlStatementSource="-- DIM_COUNTRY&#xA;CREATE TABLE dbo.DIM_COUNTRY&#xA;(&#xA;    country_key INT IDENTITY(1,1) NOT NULL,&#xA;    country_name VARCHAR(100) NOT NULL,&#xA;    CONSTRAINT PK_DIM_COUNTRY PRIMARY KEY (country_key)&#xA;);&#xA;&#xA;-- DIM_DATE&#xA;CREATE TABLE dbo.DIM_DATE&#xA;(&#xA;    date_key INT NOT NULL,&#xA;    full_date DATE NOT NULL,&#xA;    year INT NOT NULL,&#xA;    quarter INT NOT NULL,&#xA;    month INT NOT NULL,&#xA;    week_of_year INT NOT NULL,&#xA;    day INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_DATE PRIMARY KEY (date_key)&#xA;);&#xA;&#xA;-- DIM_TIME&#xA;CREATE TABLE dbo.DIM_TIME&#xA;(&#xA;    time_key INT NOT NULL,&#xA;    hour INT NOT NULL,&#xA;    minute INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_TIME PRIMARY KEY (time_key)&#xA;);&#xA;&#xA;-- DIM_WEATHER_CONDITION&#xA;CREATE TABLE dbo.DIM_WEATHER_CONDITION&#xA;(&#xA;    condition_key INT IDENTITY(1,1) NOT NULL,&#xA;    condition_text VARCHAR(100) NOT NULL,&#xA;    CONSTRAINT PK_DIM_WEATHER_CONDITION PRIMARY KEY (condition_key)&#xA;);&#xA;&#xA;-- DIM_WIND_DIRECTION&#xA;CREATE TABLE dbo.DIM_WIND_DIRECTION&#xA;(&#xA;    wind_direction_key INT IDENTITY(1,1) NOT NULL,&#xA;    wind_direction VARCHAR(50) NOT NULL,&#xA;    CONSTRAINT PK_DIM_WIND_DIRECTION PRIMARY KEY (wind_direction_key)&#xA;);&#xA;&#xA;-- DIM_MOON_PHASE&#xA;CREATE TABLE dbo.DIM_MOON_PHASE&#xA;(&#xA;    moon_phase_key INT IDENTITY(1,1) NOT NULL,&#xA;    moon_phase VARCHAR(50) NOT NULL,&#xA;    CONSTRAINT PK_DIM_MOON_PHASE PRIMARY KEY (moon_phase_key)&#xA;);&#xA;&#xA;-- DIM_LOCATION&#xA;CREATE TABLE dbo.DIM_LOCATION&#xA;(&#xA;    location_key INT IDENTITY(1,1) NOT NULL,&#xA;    location_name VARCHAR(150) NOT NULL,&#xA;    latitude FLOAT NULL,&#xA;    longitude FLOAT NULL,&#xA;    timezone VARCHAR(100) NULL,&#xA;    country_key INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_LOCATION PRIMARY KEY (location_key),&#xA;    CONSTRAINT FK_DIM_LOCATION_COUNTRY&#xA;        FOREIGN KEY (country_key)&#xA;        REFERENCES dbo.DIM_COUNTRY(country_key)&#xA;);&#xA;&#xA;-- DIM_ASTRONOMY&#xA;CREATE TABLE dbo.DIM_ASTRONOMY&#xA;(&#xA;    astronomy_key INT IDENTITY(1,1) NOT NULL,&#xA;    sunrise VARCHAR(20) NULL,&#xA;    sunset VARCHAR(20) NULL,&#xA;    moonrise VARCHAR(20) NULL,&#xA;    moonset VARCHAR(20) NULL,&#xA;    moon_phase_key INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_ASTRONOMY PRIMARY KEY (astronomy_key),&#xA;    CONSTRAINT FK_DIM_ASTRONOMY_MOON_PHASE&#xA;        FOREIGN KEY (moon_phase_key)&#xA;        REFERENCES dbo.DIM_MOON_PHASE(moon_phase_key)&#xA;);&#xA;&#xA;-- FACT_WEATHER&#xA;CREATE TABLE dbo.FACT_WEATHER&#xA;(&#xA;    weather_key BIGINT IDENTITY(1,1) NOT NULL,&#xA;    date_key INT NOT NULL,&#xA;    time_key INT NOT NULL,&#xA;    location_key INT NOT NULL,&#xA;    condition_key INT NOT NULL,&#xA;    wind_direction_key INT NOT NULL,&#xA;    astronomy_key INT NOT NULL,&#xA;    temperature_celsius FLOAT NULL,&#xA;    wind_kph FLOAT NULL,&#xA;    wind_degree INT NULL,&#xA;    pressure_mb FLOAT NULL,&#xA;    precip_mm FLOAT NULL,&#xA;    humidity INT NULL,&#xA;    cloud INT NULL,&#xA;    feels_like_celsius FLOAT NULL,&#xA;    visibility_km FLOAT NULL,&#xA;    uv_index FLOAT NULL,&#xA;    gust_kph FLOAT NULL,&#xA;    air_quality_ozone FLOAT NULL,&#xA;    air_quality_pm25 FLOAT NULL,&#xA;    air_quality_pm10 FLOAT NULL,&#xA;    moon_illumination INT NULL,&#xA;    CONSTRAINT PK_FACT_WEATHER PRIMARY KEY (weather_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_DATE&#xA;        FOREIGN KEY (date_key)&#xA;        REFERENCES dbo.DIM_DATE(date_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_TIME&#xA;        FOREIGN KEY (time_key)&#xA;        REFERENCES dbo.DIM_TIME(time_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_LOCATION&#xA;        FOREIGN KEY (location_key)&#xA;        REFERENCES dbo.DIM_LOCATION(location_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_CONDITION&#xA;        FOREIGN KEY (condition_key)&#xA;        REFERENCES dbo.DIM_WEATHER_CONDITION(condition_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_WIND_DIRECTION&#xA;        FOREIGN KEY (wind_direction_key)&#xA;        REFERENCES dbo.DIM_WIND_DIRECTION(wind_direction_key),&#xA;    CONSTRAINT FK_FACT_WEATHER_ASTRONOMY&#xA;        FOREIGN KEY (astronomy_key)&#xA;        REFERENCES dbo.DIM_ASTRONOMY(astronomy_key)&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="-- DIM_COUNTRY&#xA;CREATE TABLE dbo.DIM_COUNTRY&#xA;(&#xA;    country_id INT IDENTITY(1,1) NOT NULL,&#xA;    country_name VARCHAR(100) NOT NULL,&#xA;    CONSTRAINT PK_DIM_COUNTRY PRIMARY KEY (country_id)&#xA;);&#xA;&#xA;-- DIM_DATE&#xA;CREATE TABLE dbo.DIM_DATE&#xA;(&#xA;    date_id INT NOT NULL,&#xA;    full_date DATE NOT NULL,&#xA;    year INT NOT NULL,&#xA;    quarter INT NOT NULL,&#xA;    month INT NOT NULL,&#xA;    week_of_year INT NOT NULL,&#xA;    day INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_DATE PRIMARY KEY (date_id)&#xA;);&#xA;&#xA;-- DIM_TIME&#xA;CREATE TABLE dbo.DIM_TIME&#xA;(&#xA;    time_id INT NOT NULL,&#xA;    hour INT NOT NULL,&#xA;    minute INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_TIME PRIMARY KEY (time_id)&#xA;);&#xA;&#xA;-- DIM_WEATHER_CONDITION&#xA;CREATE TABLE dbo.DIM_WEATHER_CONDITION&#xA;(&#xA;    condition_id INT IDENTITY(1,1) NOT NULL,&#xA;    condition_text VARCHAR(100) NOT NULL,&#xA;    CONSTRAINT PK_DIM_WEATHER_CONDITION PRIMARY KEY (condition_id)&#xA;);&#xA;&#xA;-- DIM_WIND_DIRECTION&#xA;CREATE TABLE dbo.DIM_WIND_DIRECTION&#xA;(&#xA;    wind_direction_id INT IDENTITY(1,1) NOT NULL,&#xA;    wind_direction VARCHAR(50) NOT NULL,&#xA;    CONSTRAINT PK_DIM_WIND_DIRECTION PRIMARY KEY (wind_direction_id)&#xA;);&#xA;&#xA;-- DIM_MOON_PHASE&#xA;CREATE TABLE dbo.DIM_MOON_PHASE&#xA;(&#xA;    moon_phase_id INT IDENTITY(1,1) NOT NULL,&#xA;    moon_phase VARCHAR(50) NOT NULL,&#xA;    CONSTRAINT PK_DIM_MOON_PHASE PRIMARY KEY (moon_phase_id)&#xA;);&#xA;&#xA;-- DIM_LOCATION&#xA;CREATE TABLE dbo.DIM_LOCATION&#xA;(&#xA;    location_id INT IDENTITY(1,1) NOT NULL,&#xA;    location_name VARCHAR(150) NOT NULL,&#xA;    latitude FLOAT NULL,&#xA;    longitude FLOAT NULL,&#xA;    timezone VARCHAR(100) NULL,&#xA;    country_id INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_LOCATION PRIMARY KEY (location_id),&#xA;    CONSTRAINT FK_DIM_LOCATION_COUNTRY&#xA;        FOREIGN KEY (country_id)&#xA;        REFERENCES dbo.DIM_COUNTRY(country_id)&#xA;);&#xA;&#xA;-- DIM_ASTRONOMY&#xA;CREATE TABLE dbo.DIM_ASTRONOMY&#xA;(&#xA;    astronomy_id INT IDENTITY(1,1) NOT NULL,&#xA;    sunrise VARCHAR(20) NULL,&#xA;    sunset VARCHAR(20) NULL,&#xA;    moonrise VARCHAR(20) NULL,&#xA;    moonset VARCHAR(20) NULL,&#xA;    moon_phase_id INT NOT NULL,&#xA;    CONSTRAINT PK_DIM_ASTRONOMY PRIMARY KEY (astronomy_id),&#xA;    CONSTRAINT FK_DIM_ASTRONOMY_MOON_PHASE&#xA;        FOREIGN KEY (moon_phase_id)&#xA;        REFERENCES dbo.DIM_MOON_PHASE(moon_phase_id)&#xA;);&#xA;&#xA;-- FACT_WEATHER&#xA;CREATE TABLE dbo.FACT_WEATHER&#xA;(&#xA;    weather_id BIGINT IDENTITY(1,1) NOT NULL,&#xA;    date_id INT NOT NULL,&#xA;    time_id INT NOT NULL,&#xA;    location_id INT NOT NULL,&#xA;    condition_id INT NOT NULL,&#xA;    wind_direction_id INT NOT NULL,&#xA;    astronomy_id INT NOT NULL,&#xA;    temperature_celsius FLOAT NULL,&#xA;    wind_kph FLOAT NULL,&#xA;    wind_degree INT NULL,&#xA;    pressure_mb FLOAT NULL,&#xA;    precip_mm FLOAT NULL,&#xA;    humidity INT NULL,&#xA;    cloud INT NULL,&#xA;    feels_like_celsius FLOAT NULL,&#xA;    visibility_km FLOAT NULL,&#xA;    uv_index FLOAT NULL,&#xA;    gust_kph FLOAT NULL,&#xA;    air_quality_ozone FLOAT NULL,&#xA;    air_quality_pm25 FLOAT NULL,&#xA;    air_quality_pm10 FLOAT NULL,&#xA;    moon_illumination INT NULL,&#xA;    CONSTRAINT PK_FACT_WEATHER PRIMARY KEY (weather_id),&#xA;    CONSTRAINT FK_FACT_WEATHER_DATE&#xA;        FOREIGN KEY (date_id)&#xA;        REFERENCES dbo.DIM_DATE(date_id),&#xA;    CONSTRAINT FK_FACT_WEATHER_TIME&#xA;        FOREIGN KEY (time_id)&#xA;        REFERENCES dbo.DIM_TIME(time_id),&#xA;    CONSTRAINT FK_FACT_WEATHER_LOCATION&#xA;        FOREIGN KEY (location_id)&#xA;        REFERENCES dbo.DIM_LOCATION(location_id),&#xA;    CONSTRAINT FK_FACT_WEATHER_CONDITION&#xA;        FOREIGN KEY (condition_id)&#xA;        REFERENCES dbo.DIM_WEATHER_CONDITION(condition_id),&#xA;    CONSTRAINT FK_FACT_WEATHER_WIND_DIRECTION&#xA;        FOREIGN KEY (wind_direction_id)&#xA;        REFERENCES dbo.DIM_WIND_DIRECTION(wind_direction_id),&#xA;    CONSTRAINT FK_FACT_WEATHER_ASTRONOMY&#xA;        FOREIGN KEY (astronomy_id)&#xA;        REFERENCES dbo.DIM_ASTRONOMY(astronomy_id)&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DIM_COUNTRY"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C63ED1A0-D80E-4D48-854C-1849918CA254}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_COUNTRY"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_COUNTRY\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_COUNTRY\ADO NET Destination.Connections[IDbConnection]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_COUNTRY\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_COUNTRY\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DIM_COUNTRY\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_COUNTRY\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_COUNTRY\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_COUNTRY\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM_COUNTRY\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Derived Column.Inputs[Derived Column Input].Columns[country_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="country_name"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[country_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DIM_COUNTRY\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Output].Columns[country_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Output].Columns[country_name]"
+                      name="country_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[country_name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)country_name</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DIM_COUNTRY\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_COUNTRY\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_COUNTRY\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[GLOBAL_WEATHER_SOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[GLOBAL_WEATHER_SOURCE]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[country_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country_name]"
+                      length="100"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[country_name]"
+                      name="country_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[location_name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location_name]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[location_name]"
+                      name="location_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[latitude]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[latitude]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[latitude]"
+                      name="latitude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[longitude]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[longitude]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[longitude]"
+                      name="longitude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[timezone]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]"
+                      name="timezone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated_epoch]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_updated_epoch]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated_epoch]"
+                      name="last_updated_epoch"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_updated]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated]"
+                      name="last_updated"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_celsius]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_celsius]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_celsius]"
+                      name="temperature_celsius"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_kph]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wind_kph]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_kph]"
+                      name="wind_kph"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_degree]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wind_degree]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_degree]"
+                      name="wind_degree"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[pressure_mb]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[pressure_mb]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[pressure_mb]"
+                      name="pressure_mb"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[precip_mm]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[precip_mm]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[precip_mm]"
+                      name="precip_mm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[humidity]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[humidity]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[humidity]"
+                      name="humidity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[cloud]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cloud]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[cloud]"
+                      name="cloud"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[feels_like_celsius]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[feels_like_celsius]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[feels_like_celsius]"
+                      name="feels_like_celsius"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[visibility_km]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[visibility_km]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[visibility_km]"
+                      name="visibility_km"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[uv_index]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[uv_index]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[uv_index]"
+                      name="uv_index"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[gust_kph]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[gust_kph]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[gust_kph]"
+                      name="gust_kph"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_ozone]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[air_quality_ozone]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_ozone]"
+                      name="air_quality_ozone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm25]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[air_quality_pm25]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm25]"
+                      name="air_quality_pm25"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm10]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[air_quality_pm10]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm10]"
+                      name="air_quality_pm10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_illumination]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moon_illumination]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_illumination]"
+                      name="moon_illumination"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[condition_text]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[condition_text]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[condition_text]"
+                      name="condition_text"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_direction]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wind_direction]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_direction]"
+                      name="wind_direction"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunrise]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sunrise]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunrise]"
+                      name="sunrise"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunset]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sunset]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunset]"
+                      name="sunset"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonrise]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moonrise]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonrise]"
+                      name="moonrise"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonset]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moonset]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonset]"
+                      name="moonset"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_phase]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moon_phase]"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_phase]"
+                      name="moon_phase"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="country_name" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="location_name" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[latitude]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[longitude]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="longitude" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[timezone]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="timezone" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_updated_epoch]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="last_updated_epoch" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_updated]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="last_updated" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[temperature_celsius]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="temperature_celsius" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wind_kph]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="wind_kph" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wind_degree]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="wind_degree" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[pressure_mb]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="pressure_mb" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[precip_mm]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="precip_mm" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[humidity]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="humidity" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cloud]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="cloud" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[feels_like_celsius]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="feels_like_celsius" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[visibility_km]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="visibility_km" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[uv_index]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="uv_index" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[gust_kph]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="gust_kph" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[air_quality_ozone]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="air_quality_ozone" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[air_quality_pm25]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="air_quality_pm25" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[air_quality_pm10]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="air_quality_pm10" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moon_illumination]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="moon_illumination" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[condition_text]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="condition_text" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[wind_direction]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="wind_direction" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sunrise]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="sunrise" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sunset]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="sunset" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moonrise]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="moonrise" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moonset]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="moonset" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[moon_phase]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="moon_phase" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_COUNTRY\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[country_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="country_name"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[country_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[location_name]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="location_name"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[location_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[latitude]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="latitude"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[latitude]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[longitude]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="longitude"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[longitude]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[timezone]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="timezone"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[last_updated_epoch]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_updated_epoch"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated_epoch]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[last_updated]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_updated"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[temperature_celsius]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="temperature_celsius"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_celsius]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[wind_kph]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="wind_kph"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_kph]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[wind_degree]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="wind_degree"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_degree]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[pressure_mb]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pressure_mb"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[pressure_mb]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[precip_mm]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="precip_mm"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[precip_mm]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[humidity]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="humidity"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[humidity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[cloud]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cloud"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[cloud]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[feels_like_celsius]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="feels_like_celsius"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[feels_like_celsius]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[visibility_km]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="visibility_km"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[visibility_km]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[uv_index]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="uv_index"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[uv_index]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[gust_kph]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gust_kph"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[gust_kph]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[air_quality_ozone]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="air_quality_ozone"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_ozone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[air_quality_pm25]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="air_quality_pm25"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm25]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[air_quality_pm10]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="air_quality_pm10"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm10]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[moon_illumination]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="moon_illumination"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_illumination]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[condition_text]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="condition_text"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[condition_text]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[wind_direction]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="wind_direction"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_direction]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[sunrise]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sunrise"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunrise]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[sunset]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sunset"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunset]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[moonrise]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="moonrise"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonrise]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[moonset]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="moonset"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonset]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[moon_phase]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="moon_phase"
+                      lineageId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_phase]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input].Columns[country_name1]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="country_name"
+                      lineageId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Output].Columns[country_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[Flat File Source.country_name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[Flat File Source.country_name]"
+                      name="Flat File Source.country_name"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[country_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[location_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[location_name]"
+                      name="location_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[location_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[latitude]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[latitude]"
+                      name="latitude">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[latitude]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[longitude]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[longitude]"
+                      name="longitude">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[longitude]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[timezone]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[timezone]"
+                      name="timezone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[timezone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[last_updated_epoch]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[last_updated_epoch]"
+                      name="last_updated_epoch">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated_epoch]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[last_updated]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[last_updated]"
+                      name="last_updated">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[last_updated]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[temperature_celsius]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[temperature_celsius]"
+                      name="temperature_celsius">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[temperature_celsius]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[wind_kph]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[wind_kph]"
+                      name="wind_kph">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_kph]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[wind_degree]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[wind_degree]"
+                      name="wind_degree">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_degree]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[pressure_mb]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[pressure_mb]"
+                      name="pressure_mb">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[pressure_mb]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[precip_mm]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[precip_mm]"
+                      name="precip_mm">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[precip_mm]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[humidity]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[humidity]"
+                      name="humidity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[humidity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[cloud]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[cloud]"
+                      name="cloud">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[cloud]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[feels_like_celsius]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[feels_like_celsius]"
+                      name="feels_like_celsius">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[feels_like_celsius]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[visibility_km]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[visibility_km]"
+                      name="visibility_km">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[visibility_km]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[uv_index]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[uv_index]"
+                      name="uv_index">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[uv_index]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[gust_kph]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[gust_kph]"
+                      name="gust_kph">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[gust_kph]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[air_quality_ozone]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[air_quality_ozone]"
+                      name="air_quality_ozone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_ozone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[air_quality_pm25]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[air_quality_pm25]"
+                      name="air_quality_pm25">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm25]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[air_quality_pm10]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[air_quality_pm10]"
+                      name="air_quality_pm10">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[air_quality_pm10]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moon_illumination]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moon_illumination]"
+                      name="moon_illumination">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_illumination]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[condition_text]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[condition_text]"
+                      name="condition_text">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[condition_text]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[wind_direction]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[wind_direction]"
+                      name="wind_direction">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[wind_direction]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[sunrise]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[sunrise]"
+                      name="sunrise">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunrise]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[sunset]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[sunset]"
+                      name="sunset">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[sunset]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moonrise]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moonrise]"
+                      name="moonrise">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonrise]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moonset]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moonset]"
+                      name="moonset">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moonset]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moon_phase]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[moon_phase]"
+                      name="moon_phase">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output].Columns[moon_phase]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[Derived Column.country_name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output].Columns[Derived Column.country_name]"
+                      name="Derived Column.country_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Output].Columns[country_name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_COUNTRY.Paths[Derived Column Output]"
+              endId="Package\DIM_COUNTRY\Sort.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\DIM_COUNTRY\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DIM_COUNTRY.Paths[Flat File Source Output]"
+              endId="Package\DIM_COUNTRY\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DIM_COUNTRY\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DIM_COUNTRY.Paths[Sort Output]"
+              endId="Package\DIM_COUNTRY\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="Sort Output"
+              startId="Package\DIM_COUNTRY\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -91,7 +2746,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Drop All Tables"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -113,15 +2768,109 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Create All Tables"
+          TopLeft="81.5384633142568,172.354833490255" />
+        <NodeLayout
           Size="152,41.6"
           Id="Package\Drop All Tables"
           TopLeft="78.8461555633143,77.5806428119153" />
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Create All Tables"
-          TopLeft="81.5384633142568,172.354833490255" />
+          Size="157.6,41.6"
+          Id="Package\DIM_COUNTRY"
+          TopLeft="93.4615404970019,259.580637300409" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\DIM_COUNTRY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\DIM_COUNTRY\Flat File Source"
+          TopLeft="157.307695733637,39.4193536449731" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DIM_COUNTRY\Derived Column"
+          TopLeft="160.000003484579,143.838705321551" />
+        <EdgeLayout
+          Id="Package\DIM_COUNTRY.Paths[Flat File Source Output]"
+          TopLeft="236.253849609108,81.0193536449731">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.819351676578"
+              Start="0,0"
+              End="0,55.319351676578">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.319351676578" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98.4,41.6"
+          Id="Package\DIM_COUNTRY\Sort"
+          TopLeft="186.538465601012,239.451605651912" />
+        <EdgeLayout
+          Id="Package\DIM_COUNTRY.Paths[Derived Column Output]"
+          TopLeft="236.869234542796,185.438705321551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.0129003303605"
+              Start="0,0"
+              End="0,46.5129003303605">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5129003303605" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\DIM_COUNTRY\ADO NET Destination"
+          TopLeft="146.538464729867,340.096763894396" />
+        <EdgeLayout
+          Id="Package\DIM_COUNTRY.Paths[Sort Output]"
+          TopLeft="236.93846516544,281.051605651912">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.0451582424847"
+              Start="0,0"
+              End="0,51.5451582424847">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5451582424847" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

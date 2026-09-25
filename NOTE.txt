@@ -1,0 +1,175 @@
+drop table
+DROP TABLE IF EXISTS dbo.FACT_WEATHER;
+
+DROP TABLE IF EXISTS dbo.DIM_ASTRONOMY;
+DROP TABLE IF EXISTS dbo.DIM_MOON_PHASE;
+DROP TABLE IF EXISTS dbo.DIM_WIND_DIRECTION;
+DROP TABLE IF EXISTS dbo.DIM_WEATHER_CONDITION;
+DROP TABLE IF EXISTS dbo.DIM_TIME;
+DROP TABLE IF EXISTS dbo.DIM_DATE;
+DROP TABLE IF EXISTS dbo.DIM_LOCATION;
+DROP TABLE IF EXISTS dbo.DIM_COUNTRY;
+
+create table
+
+-- DIM_COUNTRY
+CREATE TABLE dbo.DIM_COUNTRY
+(
+    country_id INT IDENTITY(1,1) NOT NULL,
+    country_name VARCHAR(100) NOT NULL,
+    CONSTRAINT PK_DIM_COUNTRY PRIMARY KEY (country_id)
+);
+
+-- DIM_DATE
+CREATE TABLE dbo.DIM_DATE
+(
+    date_id INT NOT NULL,
+    full_date DATE NOT NULL,
+    year INT NOT NULL,
+    quarter INT NOT NULL,
+    month INT NOT NULL,
+    week_of_year INT NOT NULL,
+    day INT NOT NULL,
+    CONSTRAINT PK_DIM_DATE PRIMARY KEY (date_id)
+);
+
+-- DIM_TIME
+CREATE TABLE dbo.DIM_TIME
+(
+    time_id INT NOT NULL,
+    hour INT NOT NULL,
+    minute INT NOT NULL,
+    CONSTRAINT PK_DIM_TIME PRIMARY KEY (time_id)
+);
+
+-- DIM_WEATHER_CONDITION
+CREATE TABLE dbo.DIM_WEATHER_CONDITION
+(
+    condition_id INT IDENTITY(1,1) NOT NULL,
+    condition_text VARCHAR(100) NOT NULL,
+    CONSTRAINT PK_DIM_WEATHER_CONDITION PRIMARY KEY (condition_id)
+);
+
+-- DIM_WIND_DIRECTION
+CREATE TABLE dbo.DIM_WIND_DIRECTION
+(
+    wind_direction_id INT IDENTITY(1,1) NOT NULL,
+    wind_direction VARCHAR(50) NOT NULL,
+    CONSTRAINT PK_DIM_WIND_DIRECTION PRIMARY KEY (wind_direction_id)
+);
+
+-- DIM_MOON_PHASE
+CREATE TABLE dbo.DIM_MOON_PHASE
+(
+    moon_phase_id INT IDENTITY(1,1) NOT NULL,
+    moon_phase VARCHAR(50) NOT NULL,
+    CONSTRAINT PK_DIM_MOON_PHASE PRIMARY KEY (moon_phase_id)
+);
+
+-- DIM_LOCATION
+CREATE TABLE dbo.DIM_LOCATION
+(
+    location_id INT IDENTITY(1,1) NOT NULL,
+    location_name VARCHAR(150) NOT NULL,
+    latitude FLOAT NULL,
+    longitude FLOAT NULL,
+    timezone VARCHAR(100) NULL,
+    country_id INT NOT NULL,
+    CONSTRAINT PK_DIM_LOCATION PRIMARY KEY (location_id),
+    CONSTRAINT FK_DIM_LOCATION_COUNTRY
+        FOREIGN KEY (country_id)
+        REFERENCES dbo.DIM_COUNTRY(country_id)
+);
+
+-- DIM_ASTRONOMY
+CREATE TABLE dbo.DIM_ASTRONOMY
+(
+    astronomy_id INT IDENTITY(1,1) NOT NULL,
+    sunrise VARCHAR(20) NULL,
+    sunset VARCHAR(20) NULL,
+    moonrise VARCHAR(20) NULL,
+    moonset VARCHAR(20) NULL,
+    moon_phase_id INT NOT NULL,
+    CONSTRAINT PK_DIM_ASTRONOMY PRIMARY KEY (astronomy_id),
+    CONSTRAINT FK_DIM_ASTRONOMY_MOON_PHASE
+        FOREIGN KEY (moon_phase_id)
+        REFERENCES dbo.DIM_MOON_PHASE(moon_phase_id)
+);
+
+-- FACT_WEATHER
+CREATE TABLE dbo.FACT_WEATHER
+(
+    weather_id BIGINT IDENTITY(1,1) NOT NULL,
+    date_id INT NOT NULL,
+    time_id INT NOT NULL,
+    location_id INT NOT NULL,
+    condition_id INT NOT NULL,
+    wind_direction_id INT NOT NULL,
+    astronomy_id INT NOT NULL,
+    temperature_celsius FLOAT NULL,
+    wind_kph FLOAT NULL,
+    wind_degree INT NULL,
+    pressure_mb FLOAT NULL,
+    precip_mm FLOAT NULL,
+    humidity INT NULL,
+    cloud INT NULL,
+    feels_like_celsius FLOAT NULL,
+    visibility_km FLOAT NULL,
+    uv_index FLOAT NULL,
+    gust_kph FLOAT NULL,
+    air_quality_ozone FLOAT NULL,
+    air_quality_pm25 FLOAT NULL,
+    air_quality_pm10 FLOAT NULL,
+    moon_illumination INT NULL,
+    CONSTRAINT PK_FACT_WEATHER PRIMARY KEY (weather_id),
+    CONSTRAINT FK_FACT_WEATHER_DATE
+        FOREIGN KEY (date_id)
+        REFERENCES dbo.DIM_DATE(date_id),
+    CONSTRAINT FK_FACT_WEATHER_TIME
+        FOREIGN KEY (time_id)
+        REFERENCES dbo.DIM_TIME(time_id),
+    CONSTRAINT FK_FACT_WEATHER_LOCATION
+        FOREIGN KEY (location_id)
+        REFERENCES dbo.DIM_LOCATION(location_id),
+    CONSTRAINT FK_FACT_WEATHER_CONDITION
+        FOREIGN KEY (condition_id)
+        REFERENCES dbo.DIM_WEATHER_CONDITION(condition_id),
+    CONSTRAINT FK_FACT_WEATHER_WIND_DIRECTION
+        FOREIGN KEY (wind_direction_id)
+        REFERENCES dbo.DIM_WIND_DIRECTION(wind_direction_id),
+    CONSTRAINT FK_FACT_WEATHER_ASTRONOMY
+        FOREIGN KEY (astronomy_id)
+        REFERENCES dbo.DIM_ASTRONOMY(astronomy_id)
+);
+
+tạo bạng dim date
+Để điền chính xác vào cửa sổ Derived Column Transformation Editor như trong hình của bạn, bạn hãy nhìn xuống bảng lưới ở nửa dưới cửa sổ và điền lần lượt từng dòng như sau nhé (bạn có thể copy cột Expression dán thẳng vào phần mềm)
+Dòng 1 (Tạo cột ngày tháng chuẩn)
+Derived Column Name Gõ chữ full_date
+Derived Column Chọn add as new column
+Expression Copy và dán công thức sau (DT_DBDATE)last_updated
+Dòng 2 (Tách năm)
+Derived Column Name Gõ chữ year
+Derived Column Chọn add as new column
+Expression YEAR((DT_DBTIMESTAMP)last_updated)
+Dòng 3 (Tách quý)
+Derived Column Name Gõ chữ quarter
+Derived Column Chọn add as new column
+Expression DATEPART(qq,(DT_DBTIMESTAMP)last_updated)
+Dòng 4 (Tách tháng)
+Derived Column Name Gõ chữ month
+Derived Column Chọn add as new column
+Expression MONTH((DT_DBTIMESTAMP)last_updated)
+Dòng 5 (Tách tuần)
+Derived Column Name Gõ chữ week_of_year
+Derived Column Chọn add as new column
+Expression DATEPART(ww,(DT_DBTIMESTAMP)last_updated)
+Dòng 6 (Tách ngày)
+Derived Column Name Gõ chữ day
+Derived Column Chọn add as new column
+Expression DAY((DT_DBTIMESTAMP)last_updated)
+Dòng 7 (Tạo mã date_id dạng YYYYMMDD - Ví dụ 20240516)
+Derived Column Name Gõ chữ date_id
+Derived Column Chọn add as new column
+Expression (DT_I4)(YEAR((DT_DBTIMESTAMP)last_updated)  10000 + MONTH((DT_DBTIMESTAMP)last_updated)  100 + DAY((DT_DBTIMESTAMP)last_updated))
+
